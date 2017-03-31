@@ -179,7 +179,7 @@ def print_list(objs, fields, formatters={}, order_by=None, obj_is_dict=False,
                 data = obj.get(field, '')
             else:
                 data = getattr(obj, field, '')
-            row.append(str(data))
+            row.append(six.text_type(data))
             # set the alignment to right-aligned if it's a numeric
             if set_align and hasattr(data, '__int__'):
                 align[labels[field]] = 'r'

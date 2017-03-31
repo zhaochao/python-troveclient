@@ -405,16 +405,13 @@ def do_cluster_reset_status(cs, args):
 
 @utils.arg('instance',
            metavar='<instance>',
-           type=str,
            help='ID or name of the instance.')
 @utils.arg('--name',
            metavar='<name>',
-           type=str,
            default=None,
            help='Name of the instance.')
 @utils.arg('--configuration',
            metavar='<configuration>',
-           type=str,
            default=None,
            help='ID of the configuration reference to attach.')
 @utils.arg('--detach_replica_source', '--detach-replica-source',
@@ -439,7 +436,6 @@ def do_update(cs, args):
 
 @utils.arg('name',
            metavar='<name>',
-           type=str,
            help='Name of the instance.')
 @utils.arg('--size',
            metavar='<size>',
@@ -781,7 +777,6 @@ def do_cluster_create(cs, args):
 
 @utils.arg('instance',
            metavar='<instance>',
-           type=str,
            help='ID or name of the instance.')
 @utils.arg('flavor',
            metavar='<flavor>',
@@ -797,7 +792,6 @@ def do_resize_instance(cs, args):
 
 @utils.arg('instance',
            metavar='<instance>',
-           type=str,
            help='ID or name of the instance.')
 @utils.arg('datastore_version',
            metavar='<datastore_version>',
@@ -811,7 +805,6 @@ def do_upgrade(cs, args):
 
 @utils.arg('instance',
            metavar='<instance>',
-           type=str,
            help='ID or name of the instance.')
 @utils.arg('size',
            metavar='<size>',
@@ -827,7 +820,6 @@ def do_resize_volume(cs, args):
 
 @utils.arg('instance',
            metavar='<instance>',
-           type=str,
            help='ID or name of the instance.')
 @utils.service_type('database')
 def do_restart(cs, args):
@@ -840,7 +832,6 @@ def do_restart(cs, args):
 
 @utils.arg('instance',
            metavar='<instance>',
-           type=str,
            help='ID or name of the instance.')
 def do_detach_replica(cs, args):
     """Detaches a replica instance from its replication source."""
@@ -850,7 +841,6 @@ def do_detach_replica(cs, args):
 
 @utils.arg('instance',
            metavar='<instance>',
-           type=str,
            help='ID or name of the instance.')
 def do_promote_to_replica_source(cs, args):
     """Promotes a replica to be the new replica source of its set."""
@@ -860,7 +850,6 @@ def do_promote_to_replica_source(cs, args):
 
 @utils.arg('instance',
            metavar='<instance>',
-           type=str,
            help='ID or name of the instance.')
 def do_eject_replica_source(cs, args):
     """Ejects a replica source from its set."""
@@ -1418,11 +1407,9 @@ def do_datastore_version_show(cs, args):
 
 @utils.arg('instance',
            metavar='<instance>',
-           type=str,
            help='ID or name of the instance.')
 @utils.arg('configuration',
            metavar='<configuration>',
-           type=str,
            help='ID or name of the configuration group to attach to the'
                 ' instance.')
 @utils.service_type('database')
@@ -1459,7 +1446,6 @@ def do_configuration_create(cs, args):
 
 @utils.arg('instance',
            metavar='<instance>',
-           type=str,
            help='ID or name of the instance.')
 @utils.service_type('database')
 def do_configuration_default(cs, args):
@@ -1480,7 +1466,6 @@ def do_configuration_delete(cs, args):
 
 @utils.arg('instance',
            metavar='<instance>',
-           type=str,
            help='ID or name of the instance.')
 @utils.service_type('database')
 def do_configuration_detach(cs, args):
@@ -1871,7 +1856,7 @@ def do_module_delete(cs, args):
     cs.modules.delete(module)
 
 
-@utils.arg('instance', metavar='<instance>', type=str,
+@utils.arg('instance', metavar='<instance>',
            help='ID or name of the instance.')
 @utils.service_type('database')
 def do_module_list_instance(cs, args):
@@ -1926,7 +1911,7 @@ def do_cluster_modules(cs, args):
         labels={'name': 'Module Name', 'type': 'Module Type'})
 
 
-@utils.arg('instance', metavar='<instance>', type=str,
+@utils.arg('instance', metavar='<instance>',
            help='ID or name of the instance.')
 @utils.arg('modules', metavar='<module>', type=str, nargs='+', default=[],
            help='ID or name of the module.')
@@ -1946,7 +1931,7 @@ def do_module_apply(cs, args):
         labels={'datastore_version': 'Version'})
 
 
-@utils.arg('instance', metavar='<instance>', type=str,
+@utils.arg('instance', metavar='<instance>',
            help='ID or name of the instance.')
 @utils.arg('module', metavar='<module>', type=str,
            help='ID or name of the module.')
@@ -1958,7 +1943,7 @@ def do_module_remove(cs, args):
     cs.instances.module_remove(instance, module)
 
 
-@utils.arg('instance', metavar='<instance>', type=str,
+@utils.arg('instance', metavar='<instance>',
            help='ID or name of the instance.')
 @utils.service_type('database')
 def do_module_query(cs, args):
@@ -1972,7 +1957,7 @@ def do_module_query(cs, args):
         labels={'datastore_version': 'Version'})
 
 
-@utils.arg('instance', metavar='<instance>', type=str,
+@utils.arg('instance', metavar='<instance>',
            help='ID or name of the instance.')
 @utils.arg('--directory', metavar='<directory>', type=str,
            help='Directory to write module content files in. It will '
